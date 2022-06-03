@@ -6,12 +6,12 @@
 
 int[] GetSomeNumbers(int amountOfNum)
 {
-    Console.Write($"Введите {amountOfNum} чисел: ");
+    Console.WriteLine($"Введите по порядку {amountOfNum} чисел: ");
     int[] array = new int[amountOfNum];
     for (int i = 0; i < amountOfNum; i++)
     {
+        Console.Write($"Введите {i+1}-е число: ");
         array[i] = Convert.ToInt32(Console.ReadLine());
-        //Console.Write($", ");
     }
     return array;
 }
@@ -25,22 +25,23 @@ void PrintArray(int[] arrayToPrint)
     Console.WriteLine($"{arrayToPrint[arrayToPrint.Length - 1]}");
 }
 
+
 int CalcPositiveNumbers(int[] arrayToCalc)
 {
     int count = 0;
-    for(int i=0; i<arrayToCalc.Length;i++)
+    for (int i = 0; i < arrayToCalc.Length; i++)
     {
         if (arrayToCalc[i] > 0)
-        count = count + 1;
+            count = count + 1;
     }
     return count;
 }
 
-Console.Write("Введите количество чисел для сортировки: ");
+Console.Write("Сколько чисел вы хотите проверить на положительность? Напишите: ");
 int amountOfNumbers = Convert.ToInt32(Console.ReadLine());
 amountOfNumbers = Math.Abs(amountOfNumbers);
 
 int[] enteredNumbers = GetSomeNumbers(amountOfNumbers);
-Console.Write($"Вы ввели следующие числа для сортировки: ");
+Console.Write($"Вы ввели следующие числа для проверки: ");
 PrintArray(enteredNumbers);
 Console.Write($"Количество положительных введенных чисел: {CalcPositiveNumbers(enteredNumbers)}");
