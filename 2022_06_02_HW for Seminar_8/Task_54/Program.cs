@@ -28,16 +28,19 @@ void Print2DArray(int[,] arrayToPrint)
 
 int[,] SortStringsMaxToMin(int[,] arrayToSort)
 {
-    for (int i = 0; i < arrayToSort.GetLength(0) - 1; i++)
+    for (int i = 0; i < arrayToSort.GetLength(0); i++)
     {
-        for (int j = 0; j < arrayToSort.GetLength(0) - 1; j++)
+        for (int j = 0; j < arrayToSort.GetLength(1)-1; j++)
         {
-            if (arrayToSort[i, j] < arrayToSort[i, j + 1])
+            for (int k = 1; k < arrayToSort.GetLength(1); k++)
+        {
+            if (arrayToSort[i, k] > arrayToSort[i, k - 1])
             {
-                int temp = arrayToSort[i, j];
-                arrayToSort[i, j] = arrayToSort[i, j + 1];
-                arrayToSort[i, j + 1] = temp;
+                int temp = arrayToSort[i, k];
+                arrayToSort[i, k] = arrayToSort[i, k - 1];
+                arrayToSort[i, k - 1] = temp;
             }
+        }
         }
     }
     return arrayToSort;
@@ -56,5 +59,6 @@ Print2DArray(array2D);
 Console.WriteLine();
 
 int[,] sortedArray = SortStringsMaxToMin(array2D);
+Console.WriteLine("Отсортированный массив по убыванию элементов в строке: ");
 Print2DArray(sortedArray);
 
