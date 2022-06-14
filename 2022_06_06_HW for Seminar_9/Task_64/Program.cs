@@ -27,20 +27,20 @@ void PrintFromMToNUp(int m, int n)
 }
 
 Console.Write("Введите натуральное число M (начало отсчета): ");
-int StartM = Convert.ToInt32(Console.ReadLine());
+int startM = Convert.ToInt32(Console.ReadLine());
 
 Console.Write("Введите натуральное число N (конец отсчета): ");
-int FinishN = Convert.ToInt32(Console.ReadLine());
+int finishN = Convert.ToInt32(Console.ReadLine());
 
-if (StartM>FinishN)
+if (startM > finishN)
 {
-PrintFromMToNDown(StartM, FinishN);
+    PrintFromMToNDown(startM, finishN);
 }
-else if(StartM<FinishN)
+else if (startM < finishN)
 {
-PrintFromMToNUp(StartM, FinishN);
+    PrintFromMToNUp(startM, finishN);
 }
 else
 {
-    Console.WriteLine(StartM);
+    Console.WriteLine(startM);
 }
